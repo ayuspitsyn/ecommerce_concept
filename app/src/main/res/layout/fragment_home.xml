@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/teal_200"
     tools:context=".ui.homescreen.Home">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -81,14 +82,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/double_margin"
         android:layout_marginEnd="@dimen/double_margin"
-        android:layout_marginTop="@dimen/double_margin"
-        />
+        android:layout_marginTop="@dimen/double_margin" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="@string/searchText"
+        android:background="@color/white"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.rounded"
         app:layout_constraintTop_toTopOf="@id/qrBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/qrBackground"
@@ -99,6 +101,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawablePadding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:backgroundTint="#FFFFFF"
             android:drawableStart="@drawable/ic_search"/>
 
