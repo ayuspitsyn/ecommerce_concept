@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="@dimen/margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/HorizMarginGuideline"
+        app:layout_constraintGuide_begin="24dp"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertCenterGuideline"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="horizontal"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/tempback" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iconNewBackground"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:src="@drawable/oval"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/iconNewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/iconNewText"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/iconNewBackground"
+        app:layout_constraintEnd_toEndOf="@id/iconNewBackground"
+        app:layout_constraintTop_toTopOf="@id/iconNewBackground"
+        app:layout_constraintBottom_toBottomOf="@id/iconNewBackground" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintBottom_toTopOf="@id/vertCenterGuideline"
+        android:text="Iphone 12"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/vertCenterGuideline"
+        android:text="Súper. Mega. Rápido."
+        android:textColor="@color/white"
+        android:textSize="11sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:text="@string/buyNowButtonText"
+        android:backgroundTint="@color/white"
+        android:textColor="#010035"
+        android:textSize="11sp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
