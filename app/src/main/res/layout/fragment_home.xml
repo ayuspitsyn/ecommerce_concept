@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toStartOf="@id/qrBackground"
         app:layout_constraintBottom_toBottomOf="@id/qrBackground"
         android:layout_marginEnd="@dimen/double_margin"
-        android:layout_marginStart="@dimen/double_margin">
+        android:layout_marginStart="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -135,12 +135,59 @@
         android:textColor="#010035"
         android:layout_marginTop="@dimen/double_margin"
         android:layout_marginStart="@dimen/double_margin"/>
-    
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/seeMoreHotSales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/hotSalesHeader"
+        android:textSize="@dimen/textsize"
+        android:text="@string/seeMore"
+        android:textColor="#FF6E4E"/>
+
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/hoeSalesPager"
+        android:id="@+id/hotSalesPager"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginTop="@dimen/double_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hotSalesHeader"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/bestSellerHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bestSellerHeaderText"
+        android:textSize="@dimen/headerTextsize"
+        android:textColor="#010035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hotSalesPager"
+        android:layout_marginTop="@dimen/double_margin"
+        android:layout_marginStart="@dimen/double_margin"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/seeMoreBestSeller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/bestSellerHeader"
+        android:textSize="@dimen/textsize"
+        android:text="@string/seeMore"
+        android:textColor="#FF6E4E"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bestSellerList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/bestSellerHeader"
+        android:layout_marginTop="@dimen/double_margin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

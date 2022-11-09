@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="181dp"
+    android:layout_height="227dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tempitem" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/price_without_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="21dp"
+        android:text="$1,047"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/discount_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/price_without_discount"
+        android:layout_marginStart="@dimen/margin"
+        app:layout_constraintBaseline_toBaselineOf="@id/price_without_discount"
+        android:text="$1,500"
+        />
+        
+</androidx.constraintlayout.widget.ConstraintLayout>
