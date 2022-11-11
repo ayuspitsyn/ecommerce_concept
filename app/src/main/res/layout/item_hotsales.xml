@@ -20,12 +20,13 @@
         android:orientation="horizontal"/>
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:shapeAppearanceOverlay="@style/roundedCorners10"
         app:srcCompat="@drawable/tempback" />
 
     <com.google.android.material.imageview.ShapeableImageView

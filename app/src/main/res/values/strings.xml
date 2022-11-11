@@ -11,4 +11,5 @@
     <string name="iconNewText">New</string>
     <string name="buyNowButtonText">Buy now!</string>
     <string name="seeMore">see more</string>
+    <string name="homeScreenMenuTitle">Explorer</string>
 </resources>
