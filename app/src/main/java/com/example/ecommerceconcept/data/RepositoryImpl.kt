@@ -44,7 +44,7 @@ class RepositoryImpl(
         }
     }
 
-    override suspend fun getItemDetails(): DetailsItemDomain = withContext(Dispatchers.Default) {
+    override suspend fun getItemDetails(itemId: Int): DetailsItemDomain = withContext(Dispatchers.Default) {
         val source: String? = getJsonFromAssets(DETAILS_PATH)
         val type = object : TypeToken<DetailsItemDomain>() {}.type
         return@withContext Gson().fromJson<DetailsItemDomain?>(source, type)

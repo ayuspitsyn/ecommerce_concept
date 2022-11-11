@@ -13,6 +13,6 @@ interface Repository {
 
     suspend fun getBestSellerList(): LiveData<List<BestSellerItemDomain>>
 
-    suspend fun getItemDetails(): DetailsItemDomain
+    suspend fun getItemDetails(itemId: Int): DetailsItemDomain
 
 }
