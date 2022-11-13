@@ -13,7 +13,7 @@ interface EcommerceDao {
     suspend fun insertHomeStoreDbItem(list: List<HomeStoreItem>)
 
     @Query("SELECT * FROM home_store")
-    suspend fun getHomeStoreDbItemList(): LiveData<List<HomeStoreItem>>
+    fun getHomeStoreDbItemList(): LiveData<List<HomeStoreItem>>
 
 
 
@@ -22,6 +22,6 @@ interface EcommerceDao {
     suspend fun insertBestSellerDbItem(list: List<BestSellerItem>)
 
     @Query("SELECT * FROM best_seller")
-    suspend fun getBestSellerDbItemsList(): LiveData<List<BestSellerItem>>
+    fun getBestSellerDbItemsList(): LiveData<List<BestSellerItem>>
 
 }

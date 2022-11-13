@@ -1,5 +1,6 @@
 package com.example.ecommerceconcept.ui.homescreen.vm
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,15 +12,13 @@ import kotlinx.coroutines.launch
 
 class HomeFragmentViewModel(repository: Repository): ViewModel() {
 
-    lateinit var hotSales: LiveData<List<HomeStoreItemDomain>>
-    lateinit var bestSeller: LiveData<List<BestSellerItemDomain>>
-
     init{
         viewModelScope.launch {
             repository.refreshRepo()
-            hotSales=repository.getHotSalesList()
-            bestSeller=repository.getBestSellerList()
         }
     }
+
+    val hotSales: LiveData<List<HomeStoreItemDomain>> = repository.getHotSalesList()
+    val bestSeller: LiveData<List<BestSellerItemDomain>> = repository.getBestSellerList()
 
 }

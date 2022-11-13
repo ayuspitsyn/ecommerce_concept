@@ -9,9 +9,9 @@ interface Repository {
 
     suspend fun refreshRepo()
 
-    suspend fun getHotSalesList(): LiveData<List<HomeStoreItemDomain>>
+    fun getHotSalesList(): LiveData<List<HomeStoreItemDomain>>
 
-    suspend fun getBestSellerList(): LiveData<List<BestSellerItemDomain>>
+    fun getBestSellerList(): LiveData<List<BestSellerItemDomain>>
 
     suspend fun getItemDetails(itemId: Int): DetailsItemDomain
 

@@ -13,7 +13,7 @@ class HotsalesAdapter(fragment: Fragment, val items: List<HomeStoreItemDomain>) 
 
     override fun createFragment(position: Int): Fragment {
 
-        val fragment = Hotsales()
+        val fragment = HotsalesFragment()
         fragment.arguments = Bundle().apply {
             putInt(ID, items[position].id)
             putBoolean(IS_NEW, items[position].is_new)

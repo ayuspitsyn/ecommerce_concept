@@ -1,6 +1,8 @@
 package com.example.ecommerceconcept.ui.homescreen.hotsales
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -20,9 +22,8 @@ import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesAdapter.Compa
 import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesAdapter.Companion.SUBTITLE_DEFAULT
 import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesAdapter.Companion.TITLE
 import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesAdapter.Companion.TITLE_DEFAULT
-import java.net.URI
 
-class Hotsales: Fragment() {
+class HotsalesFragment: Fragment() {
 
     private var _binding: ItemHotsalesBinding? = null
     private val binding get() = _binding!!
@@ -70,7 +71,14 @@ class Hotsales: Fragment() {
 
         binding.buyNowButton.visibility = if (isBuy) VISIBLE else GONE
 
-        //binding.picture.setImageURI(URI.parse(picture)) //todo
+        try {
+            Log.d("LOG_TAG", "Adapter - current picture - "+picture)
+            val inputStream = java.net.URL(picture).openStream()
+            val image = BitmapFactory.decodeStream(inputStream)
+            binding.picture.setImageBitmap(image)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
     }
 

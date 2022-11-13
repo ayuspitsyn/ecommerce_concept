@@ -1,6 +1,7 @@
 package com.example.ecommerceconcept.ui.homescreen
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ecommerceconcept.EcommerceApp
-import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.data.db.EcommerceDao
 import com.example.ecommerceconcept.databinding.FragmentHomeBinding
-import com.example.ecommerceconcept.domain.model.home.HomeStoreItemDomain
-import com.example.ecommerceconcept.ui.homescreen.hotsales.Hotsales
 import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesAdapter
+import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesRecyclerAdapter
 import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModel
 import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModelFactory
 
@@ -40,10 +38,20 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val pager: ViewPager2 = binding.hotSalesPager
+
         homeFragmentViewModel.hotSales.observe(this@HomeFragment.viewLifecycleOwner) {
-            binding.hotSalesPager.adapter = HotsalesAdapter(this, it)
+            Log.d("LOG_TAG", "Fragment observe")
+            Log.d("LOG_TAG", it.toString())
+//            pager.adapter = HotsalesAdapter(this, it)
+            pager.adapter = HotsalesRecyclerAdapter(it)
+            pager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
         }
 
+        homeFragmentViewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
+
+        }
 
     }
 

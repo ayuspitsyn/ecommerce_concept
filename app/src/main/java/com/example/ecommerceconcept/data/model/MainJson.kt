@@ -4,6 +4,6 @@ import com.example.ecommerceconcept.data.db.BestSellerItem
 import com.example.ecommerceconcept.data.db.HomeStoreItem
 
 data class MainJson (
-    val hotSalesItems: Array<HomeStoreItem>,
-    val mainListItems: Array<BestSellerItem>
+    val home_store: List<HomeStoreItem>,
+    val best_seller: List<BestSellerItem>
     )

@@ -31,7 +31,7 @@ fun List<HomeStoreItem>.asHomeStoreItemDomain(): List<HomeStoreItemDomain> {
 
 @Entity(tableName = "best_seller")
 data class BestSellerItem (
-    @ColumnInfo val id: Int,
+    @PrimaryKey val id: Int,
     @ColumnInfo val is_favorites: Boolean,
     @ColumnInfo val title: String,
     @ColumnInfo val price_without_discount: Int,
