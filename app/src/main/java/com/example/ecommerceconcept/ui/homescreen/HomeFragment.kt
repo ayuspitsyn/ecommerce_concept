@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ecommerceconcept.EcommerceApp
+import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentHomeBinding
-import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesAdapter
-import com.example.ecommerceconcept.ui.homescreen.hotsales.HotsalesRecyclerAdapter
+import com.example.ecommerceconcept.ui.homescreen.adapter.BestSellerRecyclerAdapter
+import com.example.ecommerceconcept.ui.homescreen.adapter.HotSalesRecyclerAdapter
 import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModel
 import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModelFactory
 
@@ -38,19 +42,24 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val pager: ViewPager2 = binding.hotSalesPager
+        val hotSalesPager: ViewPager2 = binding.hotSalesPager
 
         homeFragmentViewModel.hotSales.observe(this@HomeFragment.viewLifecycleOwner) {
             Log.d("LOG_TAG", "Fragment observe")
             Log.d("LOG_TAG", it.toString())
-//            pager.adapter = HotsalesAdapter(this, it)
-            pager.adapter = HotsalesRecyclerAdapter(it)
-            pager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            hotSalesPager.adapter = HotSalesRecyclerAdapter(it)
+            hotSalesPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         }
 
-        homeFragmentViewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
+        val bestSalesRecyclerView: RecyclerView = binding.bestSellerList
+        bestSalesRecyclerView.layoutManager = GridLayoutManager(this@HomeFragment.context, 2)
 
+
+        homeFragmentViewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
+            bestSalesRecyclerView.adapter = BestSellerRecyclerAdapter(it) {
+                findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
+            }
         }
 
     }

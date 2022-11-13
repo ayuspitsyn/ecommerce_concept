@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.ui.homescreen.hotsales
+package com.example.ecommerceconcept.ui.homescreen.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +10,10 @@ import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemHotsalesBinding
 import com.example.ecommerceconcept.domain.model.home.HomeStoreItemDomain
 
-class HotsalesRecyclerAdapter(val items: List<HomeStoreItemDomain>) :
-    RecyclerView.Adapter<HotsalesRecyclerAdapter.ViewPagerViewHolder>() {
+class HotSalesRecyclerAdapter(private val items: List<HomeStoreItemDomain>) :
+    RecyclerView.Adapter<HotSalesRecyclerAdapter.ViewPagerViewHolder>() {
 
-    inner class ViewPagerViewHolder(val binding: ItemHotsalesBinding) :
+    inner class ViewPagerViewHolder(private val binding: ItemHotsalesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun setData(item: HomeStoreItemDomain) {
 

@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.ui.homescreen.hotsales
+package com.example.ecommerceconcept.ui.homescreen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,10 +9,13 @@ import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemBestsellerBinding
 import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
 
-class BestSellerRecyclerAdapter(val items: List<BestSellerItemDomain>) :
+class BestSellerRecyclerAdapter(
+    private val items: List<BestSellerItemDomain>,
+    private val onItemClicked: (BestSellerItemDomain) -> Unit
+) :
     RecyclerView.Adapter<BestSellerRecyclerAdapter.ViewPagerViewHolder>() {
 
-    inner class ViewPagerViewHolder(val binding: ItemBestsellerBinding) :
+    inner class ViewPagerViewHolder(private val binding: ItemBestsellerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun setData(item: BestSellerItemDomain) {
 
@@ -52,6 +55,7 @@ class BestSellerRecyclerAdapter(val items: List<BestSellerItemDomain>) :
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         holder.setData(items[position])
+        holder.itemView.setOnClickListener {onItemClicked(items[position])}
     }
 
 
