@@ -2,10 +2,13 @@ package com.example.ecommerceconcept.ui.homescreen
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,6 +21,8 @@ import com.example.ecommerceconcept.ui.homescreen.adapter.BestSellerRecyclerAdap
 import com.example.ecommerceconcept.ui.homescreen.adapter.HotSalesRecyclerAdapter
 import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModel
 import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModelFactory
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+
 
 class HomeFragment : Fragment() {
 
@@ -58,9 +63,57 @@ class HomeFragment : Fragment() {
 
         homeFragmentViewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
             bestSalesRecyclerView.adapter = BestSellerRecyclerAdapter(it) {
-                findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
+                findNavController().navigate(com.example.ecommerceconcept.R.id.action_homeFragment_to_detailsFragment)
             }
         }
+
+        val mBottomSheet = binding.bottomLayoutContainer.bottomFilterLayout
+        val sheetBehavior = BottomSheetBehavior.from(mBottomSheet)
+
+        binding.filterIcon.setOnClickListener {
+            if (sheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED) {
+                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED)
+                binding.bestSellerList.visibility = GONE
+            } else {
+                sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+                binding.bestSellerList.visibility = VISIBLE
+            }
+        }
+
+        binding.bottomLayoutContainer.cancelFilterBtn.setOnClickListener {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+            binding.bestSellerList.visibility = VISIBLE
+        }
+
+        binding.bottomLayoutContainer.applyFilterBtn.setOnClickListener {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+            binding.bestSellerList.visibility = VISIBLE
+        }
+
+        val brandArray = arrayOf("Samsung", "Apple", "Xiaomi")
+        val priceArray = arrayOf("$0 - $300", "$300 - $500", "$500 - $1000")
+        val sizeArray = arrayOf("0 to 4.5 inches", "4.5 to 5.5 inches", "5.5 to 8 inches")
+
+        val brandAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.dropdown_menu_popup_item,
+            brandArray
+        )
+        binding.bottomLayoutContainer.brandDropDown.setAdapter(brandAdapter)
+
+        val priceAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.dropdown_menu_popup_item,
+            priceArray
+        )
+        binding.bottomLayoutContainer.priceDropDown.setAdapter(priceAdapter)
+
+        val sizeAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.dropdown_menu_popup_item,
+            sizeArray
+        )
+        binding.bottomLayoutContainer.sizeDropDown.setAdapter(sizeAdapter)
 
     }
 

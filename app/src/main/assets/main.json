@@ -55,7 +55,86 @@
       "price_without_discount": 300,
       "discount_price": 400,
       "picture": "https://www.benchmark.rs/assets/img/news/edge1.jpg"
+    },
+    {
+      "id": 5555,
+      "is_favorites": false,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 6666,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 7777,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 8888,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 9999,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 1010,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 1111,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 1212,
+      "is_favorites": false,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 1313,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
+    },
+    {
+      "id": 1414,
+      "is_favorites": true,
+      "title": "Samsung Note 20 Ultra",
+      "price_without_discount": 1047,
+      "discount_price": 1500,
+      "picture": "https://opt-1739925.ssl.1c-bitrix-cdn.ru/upload/iblock/c01/c014d088c28d45b606ed8c58e5817172.jpg?160405904823488"
     }
   ]
-
 }

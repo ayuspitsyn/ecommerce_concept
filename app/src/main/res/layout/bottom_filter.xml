@@ -1,6 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomFilterLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/border"
+    android:paddingBottom="@dimen/double_margin"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/HorizMarginGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="44dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertHeaderCenterGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="44dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancelFilterBtn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="44dp"
+        android:backgroundTint="@color/design_blue"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_close"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/filterOptionsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Filter options"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/applyFilterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/design_orange"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/brandHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Brand"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/brandSpinner"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="31dp"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:boxStrokeColor="@color/design_blue"
+        app:endIconDrawable="@drawable/ic_spinner"
+        app:endIconMode="dropdown_menu"
+        app:endIconTint="@color/design_blue"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/brandHeader">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/brandDropDown"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:backgroundTint="@color/white"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/priceHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_margin"
+        android:text="Price"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/brandSpinner" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/priceSpinner"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="31dp"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:boxStrokeColor="@color/design_blue"
+        app:endIconDrawable="@drawable/ic_spinner"
+        app:endIconMode="dropdown_menu"
+        app:endIconTint="@color/design_blue"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/priceHeader">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/priceDropDown"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:backgroundTint="@color/white"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sizeHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_margin"
+        android:text="Size"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/priceSpinner" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sizeSpinner"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="31dp"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:boxStrokeColor="@color/design_blue"
+        app:endIconDrawable="@drawable/ic_spinner"
+        app:endIconMode="dropdown_menu"
+        app:endIconTint="@color/design_blue"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/HorizMarginGuideline"
+        app:layout_constraintTop_toBottomOf="@id/sizeHeader">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/sizeDropDown"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:backgroundTint="@color/white"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
