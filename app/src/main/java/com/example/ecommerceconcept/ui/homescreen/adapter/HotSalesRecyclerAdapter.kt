@@ -16,15 +16,10 @@ class HotSalesRecyclerAdapter(private val items: List<HomeStoreItemDomain>) :
     inner class ViewPagerViewHolder(private val binding: ItemHotsalesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun setData(item: HomeStoreItemDomain) {
-
-            binding.iconNewText.visibility = if (item.is_new) View.VISIBLE else View.GONE
-            binding.iconNewBackground.visibility = binding.iconNewText.visibility
-
+            binding.iconNew.visibility = if (item.is_new) View.VISIBLE else View.GONE
             binding.title.text = item.title
             binding.subtitle.text = item.subtitle
-
             binding.buyNowButton.visibility = if (item.is_buy) View.VISIBLE else View.GONE
-
             Glide.with(binding.root.context)
                 .load(item.picture)
                 .error(R.drawable.border)
@@ -36,13 +31,11 @@ class HotSalesRecyclerAdapter(private val items: List<HomeStoreItemDomain>) :
     override fun getItemCount(): Int = items.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
-
         val binding = ItemHotsalesBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-
         return ViewPagerViewHolder(binding)
     }
 

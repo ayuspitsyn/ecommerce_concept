@@ -8,10 +8,15 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import android.widget.LinearLayout.HORIZONTAL
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ecommerceconcept.EcommerceApp
@@ -47,20 +52,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val hotSalesPager: ViewPager2 = binding.hotSalesPager
 
+
+        val hotSalesPager: ViewPager2 = binding.hotSalesPager
         homeFragmentViewModel.hotSales.observe(this@HomeFragment.viewLifecycleOwner) {
             Log.d("LOG_TAG", "Fragment observe")
             Log.d("LOG_TAG", it.toString())
             hotSalesPager.adapter = HotSalesRecyclerAdapter(it)
             hotSalesPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
         }
 
         val bestSalesRecyclerView: RecyclerView = binding.bestSellerList
         bestSalesRecyclerView.layoutManager = GridLayoutManager(this@HomeFragment.context, 2)
-
-
         homeFragmentViewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
             bestSalesRecyclerView.adapter = BestSellerRecyclerAdapter(it) {
                 findNavController().navigate(com.example.ecommerceconcept.R.id.action_homeFragment_to_detailsFragment)
@@ -116,6 +119,7 @@ class HomeFragment : Fragment() {
         binding.bottomLayoutContainer.sizeDropDown.setAdapter(sizeAdapter)
 
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

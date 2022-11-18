@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,199 +15,296 @@
             android:id="@+id/locationIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_location"
             android:layout_marginEnd="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/locationText"
             app:layout_constraintEnd_toStartOf="@id/locationText"
             app:layout_constraintTop_toTopOf="@id/locationText"
-            app:layout_constraintBottom_toBottomOf="@id/locationText"/>
+            app:srcCompat="@drawable/ic_location" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/locationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="24dp"
             android:text="@string/user_location"
+            android:textColor="#010035"
             android:textSize="@dimen/textsize"
-            android:textColor="#010035"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/locationSpinnerIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_spinner"
             android:layout_marginStart="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="@id/locationText"
             app:layout_constraintStart_toEndOf="@id/locationText"
             app:layout_constraintTop_toTopOf="@id/locationText"
-            app:layout_constraintBottom_toBottomOf="@id/locationText" />
+            app:srcCompat="@drawable/ic_spinner" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/filterIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_filter"
             android:layout_marginEnd="24dp"
             android:clickable="true"
             android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@id/locationText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/locationText"
-            app:layout_constraintBottom_toBottomOf="@id/locationText"/>
+            app:srcCompat="@drawable/ic_filter" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/categoryHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/locationText"
             android:layout_marginStart="@dimen/double_margin"
             android:layout_marginTop="@dimen/double_margin"
             android:text="@string/categoryHeaderText"
+            android:textColor="#010035"
             android:textSize="@dimen/headerTextsize"
-            android:textColor="#010035"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locationText" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/viewAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@id/categoryHeader"
-            android:textSize="@dimen/textsize"
             android:text="@string/viewAllText"
-            android:textColor="#FF6E4E"/>
+            android:textColor="#FF6E4E"
+            android:textSize="@dimen/textsize"
+            app:layout_constraintBaseline_toBaselineOf="@id/categoryHeader"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categories"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/categoryHeader"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="@dimen/double_margin"
-            android:layout_marginEnd="@dimen/double_margin"
-            android:layout_marginTop="@dimen/double_margin" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/searchInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="@dimen/double_margin"
+            android:hint="@string/searchText"
+            android:paddingBottom="5dp"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeWidth="0dp"
-            android:hint="@string/searchText"
-            app:shapeAppearanceOverlay="@style/roundedCorners50"
-            app:layout_constraintTop_toTopOf="@id/qrBackground"
+            app:layout_constraintBottom_toBottomOf="@id/qrBtn"
+            app:layout_constraintEnd_toStartOf="@id/qrBtn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/qrBackground"
-            app:layout_constraintBottom_toBottomOf="@id/qrBackground"
-            android:layout_marginEnd="@dimen/double_margin"
-            android:layout_marginStart="32dp">
+            app:layout_constraintTop_toTopOf="@id/qrBtn"
+            app:shapeAppearanceOverlay="@style/roundedCorners50">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="16dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:backgroundTint="#FFFFFF"
-                android:drawableStart="@drawable/ic_search"/>
-
+                android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/qrBackground"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/oval"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categories"
-            android:layout_marginTop="@dimen/double_margin"/>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/qrIcon"
+        <RadioGroup
+            android:id="@+id/categorySelector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:layout_marginStart="4dp"
+            android:orientation="horizontal"
+            android:checkedButton="@id/phone">
+            
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/phone"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="23dp"
+                android:button="@null"
+                android:gravity="center"
+                android:drawableStart="@drawable/ic_phones"
+                android:padding="26dp"
+                android:drawableTint="@drawable/custom_button_icon_color_selector"
+                android:background="@drawable/custom_button_background_selector"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/computer"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="23dp"
+                android:button="@null"
+                android:drawableStart="@drawable/ic_computer"
+                android:padding="23dp"
+                android:drawableTint="@drawable/custom_button_icon_color_selector"
+                android:background="@drawable/custom_button_background_selector"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/health"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="23dp"
+                android:button="@null"
+                android:drawableStart="@drawable/ic_health"
+                android:padding="20dp"
+                android:drawableTint="@drawable/custom_button_icon_color_selector"
+                android:background="@drawable/custom_button_background_selector"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/books"
+                android:layout_width="71dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="23dp"
+                android:button="@null"
+                android:drawableStart="@drawable/ic_books"
+                android:padding="25dp"
+                android:drawableTint="@drawable/custom_button_icon_color_selector"
+                android:background="@drawable/custom_button_background_selector"/>
+
+        </RadioGroup>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phonesTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_qr"
-            app:layout_constraintStart_toStartOf="@id/qrBackground"
-            app:layout_constraintEnd_toEndOf="@id/qrBackground"
-            app:layout_constraintTop_toTopOf="@id/qrBackground"
-            app:layout_constraintBottom_toBottomOf="@id/qrBackground"/>
+            android:text="@string/phonesBtnText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/computersTv"
+            app:layout_constraintTop_toBottomOf="@id/categorySelector"
+            android:layout_marginTop="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/design_blue" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/computersTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/computersBtnText"
+            app:layout_constraintStart_toEndOf="@id/phonesTv"
+            app:layout_constraintEnd_toStartOf="@id/healthTv"
+            app:layout_constraintTop_toBottomOf="@id/categorySelector"
+            android:layout_marginTop="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/design_blue" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/healthTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/healthBtnText"
+            app:layout_constraintStart_toEndOf="@id/computersTv"
+            app:layout_constraintEnd_toStartOf="@id/booksTv"
+            app:layout_constraintTop_toBottomOf="@id/categorySelector"
+            android:layout_marginTop="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/design_blue" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/booksTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/booksBtnText"
+            app:layout_constraintStart_toEndOf="@id/healthTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categorySelector"
+            android:layout_marginTop="7dp"
+            android:textSize="12sp"
+            android:textColor="@color/design_blue" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/qrBtn"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="@dimen/double_margin"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/oval"
+            app:backgroundTint="@color/design_orange"
+            app:icon="@drawable/ic_qr"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phonesTv" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/hotSalesHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchInput"
-            android:text="@string/hotSalesHeaderText"
-            android:textSize="@dimen/headerTextsize"
-            android:textColor="#010035"
+            android:layout_marginStart="@dimen/double_margin"
             android:layout_marginTop="@dimen/double_margin"
-            android:layout_marginStart="@dimen/double_margin"/>
+            android:text="@string/hotSalesHeaderText"
+            android:textColor="#010035"
+            android:textSize="@dimen/headerTextsize"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchInput" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/seeMoreHotSales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@id/hotSalesHeader"
-            android:textSize="@dimen/textsize"
             android:text="@string/seeMore"
-            android:textColor="#FF6E4E"/>
+            android:textColor="#FF6E4E"
+            android:textSize="@dimen/textsize"
+            app:layout_constraintBaseline_toBaselineOf="@id/hotSalesHeader"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/hotSalesPager"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginStart="@dimen/margin"
-            android:layout_marginEnd="@dimen/margin"
             android:layout_marginTop="@dimen/double_margin"
+            android:layout_marginEnd="@dimen/margin"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hotSalesHeader"/>
+            app:layout_constraintTop_toBottomOf="@id/hotSalesHeader" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/bestSellerHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bestSellerHeaderText"
-            android:textSize="@dimen/headerTextsize"
-            android:textColor="#010035"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hotSalesPager"
+            android:layout_marginStart="@dimen/double_margin"
             android:layout_marginTop="@dimen/double_margin"
-            android:layout_marginStart="@dimen/double_margin"/>
+            android:text="@string/bestSellerHeaderText"
+            android:textColor="#010035"
+            android:textSize="@dimen/headerTextsize"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hotSalesPager" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/seeMoreBestSeller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBaseline_toBaselineOf="@id/bestSellerHeader"
-            android:textSize="@dimen/textsize"
             android:text="@string/seeMore"
-            android:textColor="#FF6E4E"/>
+            android:textColor="#FF6E4E"
+            android:textSize="@dimen/textsize"
+            app:layout_constraintBaseline_toBaselineOf="@id/bestSellerHeader"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/bestSellerList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="@dimen/double_margin"
             android:layout_marginEnd="@dimen/margin"
-            app:layout_constraintTop_toBottomOf="@id/bestSellerHeader"
-            android:layout_marginTop="@dimen/double_margin"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bestSellerHeader" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="375dp"
-            app:layout_constraintTop_toTopOf="@id/bestSellerHeader"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hotSalesPager">
+
             <include
                 android:id="@+id/bottomLayoutContainer"
                 layout="@layout/bottom_filter" />

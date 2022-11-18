@@ -12,14 +12,11 @@
         android:layout_width="71dp"
         android:layout_height="71dp"
         android:src="@drawable/ic_phones"
+        app:tint="@color/white"
         app:maxImageSize="30dp"
         android:backgroundTint="#FF6E4E"
-        android:tint="@color/teal_200"
         app:fabCustomSize="71dp"
         app:elevation="0dp" />
-
-
-
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/itemCategoriesText"
