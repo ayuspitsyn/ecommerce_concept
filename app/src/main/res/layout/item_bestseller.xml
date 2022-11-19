@@ -4,6 +4,7 @@
     android:layout_width="181dp"
     android:layout_height="227dp"
     android:background="@drawable/border"
+    android:layout_margin="@dimen/margin"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.imageview.ShapeableImageView

@@ -106,10 +106,10 @@
             android:id="@+id/brandDropDown"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
             android:backgroundTint="@color/white"
-            android:inputType="none" />
+            android:inputType="none"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -146,10 +146,10 @@
             android:id="@+id/priceDropDown"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
             android:backgroundTint="@color/white"
-            android:inputType="none" />
+            android:inputType="none"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -186,10 +186,10 @@
             android:id="@+id/sizeDropDown"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
             android:backgroundTint="@color/white"
-            android:inputType="none" />
+            android:inputType="none"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,6 @@
     <string name="buyNowButtonText">Buy now!</string>
     <string name="seeMore">see more</string>
     <string name="homeScreenMenuTitle">Explorer</string>
-    <string name="strikeText"><Strike>%s</Strike>></string>
     <string name="phonesBtnText">Phones</string>
     <string name="computersBtnText">Computer</string>
     <string name="healthBtnText">Health</string>

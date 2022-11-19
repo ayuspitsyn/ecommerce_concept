@@ -1,5 +1,6 @@
 package com.example.ecommerceconcept.ui.homescreen.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,8 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemBestsellerBinding
 import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
+import com.example.ecommerceconcept.domain.model.home.formattedDiscountPrice
+import com.example.ecommerceconcept.domain.model.home.formattedPriceWithoutDiscount
 
 class BestSellerRecyclerAdapter(
     private val items: List<BestSellerItemDomain>,
@@ -26,11 +29,11 @@ class BestSellerRecyclerAdapter(
             }
 
             binding.title.text = item.title
-            binding.discountPrice.text = item.discount_price.toString()
-            binding.priceWithoutDiscount.text = binding.root.context.resources.getString(
-                R.string.strikeText,
-                item.price_without_discount.toString()
-            )
+            binding.discountPrice.apply {
+                paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                text = item.formattedDiscountPrice()
+            }
+            binding.priceWithoutDiscount.text = item.formattedPriceWithoutDiscount()
 
             Glide.with(binding.root.context)
                 .load(item.picture)

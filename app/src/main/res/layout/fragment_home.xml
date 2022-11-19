@@ -9,39 +9,42 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200">
+        android:background="@color/mainBackgroundColor">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/locationIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin"
-            app:layout_constraintBottom_toBottomOf="@id/locationText"
-            app:layout_constraintEnd_toStartOf="@id/locationText"
-            app:layout_constraintTop_toTopOf="@id/locationText"
-            app:srcCompat="@drawable/ic_location" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/locationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/user_location"
-            android:textColor="#010035"
-            android:textSize="@dimen/textsize"
-            app:layout_constraintEnd_toEndOf="parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/locationSpinner"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            app:boxBackgroundColor="@color/mainBackgroundColor"
+            app:boxStrokeWidth="0dp"
+            android:layout_width="230dp"
+            android:layout_height="37dp"
+            app:boxStrokeColor="@color/design_blue"
+            app:startIconDrawable="@drawable/ic_location"
+            app:startIconTint="@color/design_orange"
+            app:endIconDrawable="@drawable/ic_spinner"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="@color/design_blue"
+            app:hintEnabled="false"
+            android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/locationSpinnerIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin"
-            app:layout_constraintBottom_toBottomOf="@id/locationText"
-            app:layout_constraintStart_toEndOf="@id/locationText"
-            app:layout_constraintTop_toTopOf="@id/locationText"
-            app:srcCompat="@drawable/ic_spinner" />
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/locationDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/mainBackgroundColor"
+                android:inputType="none"
+                android:textSize="15sp"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/filterIcon"
@@ -50,9 +53,9 @@
             android:layout_marginEnd="24dp"
             android:clickable="true"
             android:focusable="true"
-            app:layout_constraintBottom_toBottomOf="@id/locationText"
+            app:layout_constraintBottom_toBottomOf="@id/locationSpinner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/locationText"
+            app:layout_constraintTop_toTopOf="@id/locationSpinner"
             app:srcCompat="@drawable/ic_filter" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -66,7 +69,7 @@
             android:textSize="@dimen/headerTextsize"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/locationText" />
+            app:layout_constraintTop_toBottomOf="@id/locationSpinner" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/viewAll"
@@ -91,6 +94,8 @@
             android:paddingBottom="5dp"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeWidth="0dp"
+            app:hintTextColor="@color/design_blue"
+            app:boxStrokeColor="@color/design_blue"
             app:layout_constraintBottom_toBottomOf="@id/qrBtn"
             app:layout_constraintEnd_toStartOf="@id/qrBtn"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,6 +110,8 @@
                 android:drawablePadding="16dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -167,54 +174,73 @@
 
         </RadioGroup>
 
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phonesTv"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/buttonDescriptions"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/phonesBtnText"
+            android:layout_marginStart="4dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/computersTv"
-            app:layout_constraintTop_toBottomOf="@id/categorySelector"
-            android:layout_marginTop="7dp"
-            android:textSize="12sp"
-            android:textColor="@color/design_blue" />
+            app:layout_constraintTop_toBottomOf="@id/categorySelector">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/computersTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/computersBtnText"
-            app:layout_constraintStart_toEndOf="@id/phonesTv"
-            app:layout_constraintEnd_toStartOf="@id/healthTv"
-            app:layout_constraintTop_toBottomOf="@id/categorySelector"
-            android:layout_marginTop="7dp"
-            android:textSize="12sp"
-            android:textColor="@color/design_blue" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/phonesTv"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:text="@string/phonesBtnText"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/computersTv"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector"
+                android:layout_marginTop="7dp"
+                android:textSize="12sp"
+                android:textColor="@color/design_orange" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/healthTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/healthBtnText"
-            app:layout_constraintStart_toEndOf="@id/computersTv"
-            app:layout_constraintEnd_toStartOf="@id/booksTv"
-            app:layout_constraintTop_toBottomOf="@id/categorySelector"
-            android:layout_marginTop="7dp"
-            android:textSize="12sp"
-            android:textColor="@color/design_blue" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/computersTv"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:text="@string/computersBtnText"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/phonesTv"
+                app:layout_constraintEnd_toStartOf="@id/healthTv"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector"
+                android:layout_marginTop="7dp"
+                android:textSize="12sp"
+                android:textColor="@color/design_blue" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/booksTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/booksBtnText"
-            app:layout_constraintStart_toEndOf="@id/healthTv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categorySelector"
-            android:layout_marginTop="7dp"
-            android:textSize="12sp"
-            android:textColor="@color/design_blue" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/healthTv"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:text="@string/healthBtnText"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/computersTv"
+                app:layout_constraintEnd_toStartOf="@id/booksTv"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector"
+                android:layout_marginTop="7dp"
+                android:textSize="12sp"
+                android:textColor="@color/design_blue" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/booksTv"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:text="@string/booksBtnText"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/healthTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector"
+                android:layout_marginTop="7dp"
+                android:textSize="12sp"
+                android:textColor="@color/design_blue" />
+
+        </LinearLayout>
+
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/qrBtn"
@@ -229,7 +255,7 @@
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phonesTv" />
+            app:layout_constraintTop_toBottomOf="@id/buttonDescriptions" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/hotSalesHeader"
