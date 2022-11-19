@@ -1,11 +1,13 @@
 package com.example.ecommerceconcept.ui.homescreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -44,6 +46,21 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.root.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    return if (homeFragmentViewModel.isReady) {
+                        binding.root.viewTreeObserver.removeOnPreDrawListener(this)
+                        Log.d("LOG_TAG", "VM ready, launch app!")
+                        true
+                    } else {
+                        Log.d("LOG_TAG", "VM not ready, wait...")
+                        false
+                    }
+                }
+            }
+        )
 
         setupButtons()
 

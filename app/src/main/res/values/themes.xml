@@ -17,12 +17,22 @@
         <item name="windowActionBar">false</item>
         <item name="fontFamily">@font/mark_pro_font_family</item>
 
+        <item name="android:windowBackground">@drawable/splash</item>
+
+
+
     </style>
 
     <style name="roundedCorners50" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50dp</item>
     </style>
+
+    <style name="roundedCorners30" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
 
     <style name="roundedCorners10" parent="">
         <item name="cornerFamily">rounded</item>

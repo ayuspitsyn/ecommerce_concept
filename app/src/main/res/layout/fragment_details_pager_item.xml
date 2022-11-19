@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/cpuicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_cpu"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cameraIcon"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/cameraIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_camera"
+        app:layout_constraintTop_toTopOf="@id/cpuicon"
+        app:layout_constraintBottom_toBottomOf="@id/cpuicon"
+        app:layout_constraintStart_toEndOf="@id/cpuicon"
+        app:layout_constraintEnd_toStartOf="@id/ramIcon"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ramIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_ram"
+        app:layout_constraintTop_toTopOf="@id/cpuicon"
+        app:layout_constraintBottom_toBottomOf="@id/cpuicon"
+        app:layout_constraintStart_toEndOf="@id/cameraIcon"
+        app:layout_constraintEnd_toStartOf="@id/flashIcon"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/flashIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_flash"
+        app:layout_constraintTop_toTopOf="@id/cpuicon"
+        app:layout_constraintBottom_toBottomOf="@id/cpuicon"
+        app:layout_constraintStart_toEndOf="@id/ramIcon"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/cpu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/cpuicon"
+        app:layout_constraintEnd_toEndOf="@id/cpuicon"
+        app:layout_constraintTop_toBottomOf="@id/cpuicon"
+        android:text="Exynos 990"
+        android:textColor="@color/design_gray"
+        android:textSize="11sp"
+        android:layout_marginTop="5dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/cameraIcon"
+        app:layout_constraintEnd_toEndOf="@id/cameraIcon"
+        app:layout_constraintTop_toTopOf="@id/cpu"
+        android:text="108 + 12 mp"
+        android:textColor="@color/design_gray"
+        android:textSize="11sp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ramIcon"
+        app:layout_constraintEnd_toEndOf="@id/ramIcon"
+        app:layout_constraintTop_toTopOf="@id/cpu"
+        android:text="8 GB"
+        android:textColor="@color/design_gray"
+        android:textSize="11sp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/flash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/flashIcon"
+        app:layout_constraintEnd_toEndOf="@id/flashIcon"
+        app:layout_constraintTop_toTopOf="@id/cpu"
+        android:text="256 GB"
+        android:textColor="@color/design_gray"
+        android:textSize="11sp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/paramsSelectorHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select color and capacity"
+        android:textSize="16sp"
+        android:textColor="@color/design_blue"
+        app:layout_constraintTop_toBottomOf="@id/cpu"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/colorVariant1btn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/oval"
+        app:backgroundTint="@color/design_brown"
+        app:icon="@drawable/ic_selected"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader"
+        app:layout_constraintStart_toStartOf="@id/paramsSelectorHeader"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/colorVariant2btn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="19dp"
+        android:background="@drawable/oval"
+        app:backgroundTint="@color/design_blue"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader"
+        app:layout_constraintStart_toEndOf="@id/colorVariant1btn"
+
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ramVariant1Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginEnd="19dp"
+        android:backgroundTint="@color/design_orange"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="128 GB"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="13sp"
+        app:strokeColor="@color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toStartOf="@id/ramVariant2Btn"
+        app:layout_constraintTop_toTopOf="@id/colorVariant1btn"
+        app:layout_constraintBottom_toBottomOf="@id/colorVariant1btn"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ramVariant2Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/white"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="256 gb"
+        android:textAllCaps="false"
+        android:textSize="13sp"
+        android:textColor="@color/design_gray"
+        app:cornerRadius="10dp"
+        app:layout_constraintTop_toTopOf="@id/colorVariant1btn"
+        app:layout_constraintBottom_toBottomOf="@id/colorVariant1btn"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

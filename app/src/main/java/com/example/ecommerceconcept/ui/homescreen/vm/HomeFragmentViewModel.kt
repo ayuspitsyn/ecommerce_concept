@@ -12,9 +12,13 @@ import kotlinx.coroutines.launch
 
 class HomeFragmentViewModel(repository: Repository): ViewModel() {
 
+    var isReady = false
+
     init{
+        isReady = false
         viewModelScope.launch {
             repository.refreshRepo()
+            isReady=true
         }
     }
 
