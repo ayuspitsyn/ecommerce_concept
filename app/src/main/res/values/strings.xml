@@ -16,5 +16,6 @@
     <string name="computersBtnText">Computer</string>
     <string name="healthBtnText">Health</string>
     <string name="booksBtnText">Books</string>
+    <string name="addToCartButtonText">Add to cart %1$s</string>
 
 </resources>

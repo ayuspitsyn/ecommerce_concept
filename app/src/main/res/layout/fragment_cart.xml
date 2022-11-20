@@ -1,14 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cartscreen.CartFragment">
+    android:background="@color/mainBackgroundColor"
+    android:elevation="-10dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertHeaderCenterGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="44dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backBtn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="44dp"
+        android:backgroundTint="@color/design_blue"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_back"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/filterOptionsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Add adress"
+        android:textSize="15sp"
+        android:textColor="@color/design_blue"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintEnd_toStartOf="@+id/addAddressBtn"
+        app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addAddressBtn"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="@color/design_orange"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_location"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/imagePager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="My Cart"
+        android:textColor="@color/design_blue"
+        android:textSize="35sp"
+        android:layout_marginStart="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vertHeaderCenterGuideline" />
 
-</FrameLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintTop_toBottomOf="@id/imagePager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:shapeAppearance="@style/roundedCorners30"
+        android:background="@color/design_blue"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toTopOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintBottom_toTopOf="@id/horiz_divider_1"
+        />
+
+    <View
+        android:id="@+id/horiz_divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#FFFFFF"
+        android:alpha="0.25"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/horiz_divider_2"
+        />
+
+
+
+
+
+
+
+
+
+
+    <View
+        android:id="@+id/horiz_divider_2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#FFFFFF"
+        android:alpha="0.25"
+        android:layout_marginBottom="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/checkoutBtn"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/checkoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:backgroundTint="@color/design_orange"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        android:text="Checkout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="44dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

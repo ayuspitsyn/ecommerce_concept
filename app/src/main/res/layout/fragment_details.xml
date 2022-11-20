@@ -1,5 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false">
@@ -7,7 +8,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/mainBackgroundColor">
+        android:background="@color/mainBackgroundColor"
+        android:elevation="-10dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/vertHeaderCenterGuideline"
@@ -42,11 +44,12 @@
             android:gravity="center"
             android:text="Product Details"
             android:textSize="18sp"
+            android:textColor="@color/design_blue"
             app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
             app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addToCartBtn"
+            android:id="@+id/addToCartnSmallBtn"
             android:layout_width="37dp"
             android:layout_height="37dp"
             android:layout_marginEnd="44dp"
@@ -75,6 +78,7 @@
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="470dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/imagePager"
             app:shapeAppearance="@style/roundedCorners30"
             android:background="@color/white"/>
@@ -96,7 +100,8 @@
             app:layout_constraintTop_toTopOf="@id/background"
             app:layout_constraintEnd_toEndOf="@id/background"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="37dp" />
+            android:layout_marginEnd="37dp"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
@@ -164,7 +169,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/star1"/>
+            app:tabIndicatorColor="@color/design_orange"
+            app:tabTextColor="@color/design_gray"
+            app:tabSelectedTextColor="@color/design_blue"
+            app:layout_constraintTop_toBottomOf="@id/star1"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/detailsPager"
@@ -172,22 +180,21 @@
             android:layout_width="match_parent"
             android:layout_height="210dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/applyFilterBtn"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/design_orange"
-            android:text="Add to cart      $1.500.00"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:cornerRadius="10dp"
-            app:layout_constraintTop_toBottomOf="@id/detailsPager"
-            android:layout_marginStart="30dp"
-            app:layout_goneMarginEnd="30dp"
-            />
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToCartBtn"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/design_orange"
+                tools:text="Add to cart 1500"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailsPager"
+                android:layout_marginStart="30dp"
+                app:layout_goneMarginEnd="30dp"
+                />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

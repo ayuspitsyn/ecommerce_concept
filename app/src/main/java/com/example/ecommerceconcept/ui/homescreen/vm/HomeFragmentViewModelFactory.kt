@@ -9,11 +9,14 @@ import com.example.ecommerceconcept.data.db.EcommerceDao
 class HomeFragmentViewModelFactory(ecommerceDao: EcommerceDao, assets: AssetManager) :
     ViewModelProvider.Factory {
 
-        private val repository by lazy {
-            RepositoryImpl(ecommerceDao, assets)
-        }
+    private val repository by lazy {
+        RepositoryImpl(ecommerceDao, assets)
+    }
+
+    private lateinit var instance: HomeFragmentViewModel
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return HomeFragmentViewModel(repository) as T
+        instance = if(::instance.isInitialized) instance else HomeFragmentViewModel(repository)
+        return instance as T
     }
 }

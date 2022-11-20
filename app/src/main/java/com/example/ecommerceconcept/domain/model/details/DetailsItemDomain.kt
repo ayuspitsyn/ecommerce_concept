@@ -1,5 +1,8 @@
 package com.example.ecommerceconcept.domain.model.details
 
+import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
+import java.text.NumberFormat
+
 data class DetailsItemDomain (
     val CPU: String,
     val camera: String,
@@ -14,3 +17,8 @@ data class DetailsItemDomain (
     val ssd: String,
     val title: String,
     )
+
+fun DetailsItemDomain.formattedPrice():String {
+    val f = NumberFormat.getCurrencyInstance()
+    return f.format(price)
+}

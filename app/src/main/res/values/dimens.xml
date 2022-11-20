@@ -5,5 +5,7 @@
     <dimen name="headerTextsize">24sp</dimen>
     <dimen name="textsize">15sp</dimen>
     <dimen name="smalltextsize">8sp</dimen>
+    <dimen name="viewpager_next_item_visible">50dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">60dp</dimen>
 
 </resources>

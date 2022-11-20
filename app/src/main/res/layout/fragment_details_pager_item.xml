@@ -6,7 +6,7 @@
     android:background="@color/white">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/cpuicon"
+        android:id="@+id/cpuIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_cpu"
@@ -20,18 +20,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_camera"
-        app:layout_constraintTop_toTopOf="@id/cpuicon"
-        app:layout_constraintBottom_toBottomOf="@id/cpuicon"
-        app:layout_constraintStart_toEndOf="@id/cpuicon"
+        app:layout_constraintTop_toTopOf="@id/cpuIcon"
+        app:layout_constraintBottom_toBottomOf="@id/cpuIcon"
+        app:layout_constraintStart_toEndOf="@id/cpuIcon"
         app:layout_constraintEnd_toStartOf="@id/ramIcon"/>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ramIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_ram"
-        app:layout_constraintTop_toTopOf="@id/cpuicon"
-        app:layout_constraintBottom_toBottomOf="@id/cpuicon"
+        app:srcCompat="@drawable/ic_camera"
+        app:layout_constraintTop_toTopOf="@id/cpuIcon"
+        app:layout_constraintBottom_toBottomOf="@id/cpuIcon"
         app:layout_constraintStart_toEndOf="@id/cameraIcon"
         app:layout_constraintEnd_toStartOf="@id/flashIcon"/>
 
@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_flash"
-        app:layout_constraintTop_toTopOf="@id/cpuicon"
-        app:layout_constraintBottom_toBottomOf="@id/cpuicon"
+        app:layout_constraintTop_toTopOf="@id/cpuIcon"
+        app:layout_constraintBottom_toBottomOf="@id/cpuIcon"
         app:layout_constraintStart_toEndOf="@id/ramIcon"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -49,9 +49,9 @@
         android:id="@+id/cpu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/cpuicon"
-        app:layout_constraintEnd_toEndOf="@id/cpuicon"
-        app:layout_constraintTop_toBottomOf="@id/cpuicon"
+        app:layout_constraintStart_toStartOf="@id/cpuIcon"
+        app:layout_constraintEnd_toEndOf="@id/cpuIcon"
+        app:layout_constraintTop_toBottomOf="@id/cpuIcon"
         android:text="Exynos 990"
         android:textColor="@color/design_gray"
         android:textSize="11sp"
@@ -78,6 +78,7 @@
         android:text="8 GB"
         android:textColor="@color/design_gray"
         android:textSize="11sp"/>
+
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/flash"
@@ -109,7 +110,6 @@
         android:layout_height="37dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/oval"
-        app:backgroundTint="@color/design_brown"
         app:icon="@drawable/ic_selected"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
@@ -124,7 +124,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginStart="19dp"
         android:background="@drawable/oval"
-        app:backgroundTint="@color/design_blue"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
         app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader"
@@ -133,7 +132,7 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/ramVariant1Btn"
+        android:id="@+id/flashVariant1Btn"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginEnd="19dp"
@@ -148,13 +147,13 @@
         android:textSize="13sp"
         app:strokeColor="@color/white"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toStartOf="@id/ramVariant2Btn"
+        app:layout_constraintEnd_toStartOf="@id/flashVariant2Btn"
         app:layout_constraintTop_toTopOf="@id/colorVariant1btn"
         app:layout_constraintBottom_toBottomOf="@id/colorVariant1btn"
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/ramVariant2Btn"
+        android:id="@+id/flashVariant2Btn"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginEnd="30dp"

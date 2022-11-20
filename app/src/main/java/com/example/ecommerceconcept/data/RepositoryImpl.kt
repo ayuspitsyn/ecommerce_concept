@@ -4,6 +4,7 @@ import android.content.res.AssetManager
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
+import androidx.lifecycle.liveData
 import com.example.ecommerceconcept.data.db.EcommerceDao
 import com.example.ecommerceconcept.data.db.asBestSellerItemDomain
 import com.example.ecommerceconcept.data.db.asHomeStoreItemDomain
@@ -51,11 +52,11 @@ class RepositoryImpl(
         }
     }
 
-    override suspend fun getItemDetails(itemId: Int): DetailsItemDomain = withContext(Dispatchers.Default) {
+    override fun getItemDetails(itemId: Int): LiveData<DetailsItemDomain> = liveData {
         val source: String? = getJsonFromAssets(DETAILS_PATH)
         val type = object : TypeToken<DetailsItem>() {}.type
-        return@withContext Gson().fromJson<DetailsItem?>(source, type)
-    }.asDetailsItemDomain()
+        emit(Gson().fromJson<DetailsItem?>(source, type).asDetailsItemDomain())
+    }
 
     private fun getJsonFromAssets(jsonFileName: String): String? {
         val result: String
