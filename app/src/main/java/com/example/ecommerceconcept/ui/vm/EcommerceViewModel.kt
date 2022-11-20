@@ -1,17 +1,16 @@
-package com.example.ecommerceconcept.ui.homescreen.vm
+package com.example.ecommerceconcept.ui.vm
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ecommerceconcept.domain.Repository
+import com.example.ecommerceconcept.domain.model.cart.BasketDomain
 import com.example.ecommerceconcept.domain.model.details.DetailsItemDomain
 import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
 import com.example.ecommerceconcept.domain.model.home.HomeStoreItemDomain
 import kotlinx.coroutines.launch
 
-class HomeFragmentViewModel(private val repository: Repository): ViewModel() {
+class EcommerceViewModel(private val repository: Repository): ViewModel() {
 
     var isReady = false
 
@@ -24,7 +23,11 @@ class HomeFragmentViewModel(private val repository: Repository): ViewModel() {
     }
 
     val hotSales: LiveData<List<HomeStoreItemDomain>> = repository.getHotSalesList()
+
     val bestSeller: LiveData<List<BestSellerItemDomain>> = repository.getBestSellerList()
+
     fun getItemDetails(id: Int): LiveData<DetailsItemDomain> = repository.getItemDetails(id)
+
+    val cart: LiveData<BasketDomain> = repository.getBasket()
 
 }

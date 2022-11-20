@@ -1,6 +1,5 @@
 package com.example.ecommerceconcept.domain.model.details
 
-import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
 import java.text.NumberFormat
 
 data class DetailsItemDomain (

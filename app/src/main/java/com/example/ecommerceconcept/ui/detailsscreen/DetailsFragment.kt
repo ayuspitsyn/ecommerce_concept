@@ -1,7 +1,6 @@
 package com.example.ecommerceconcept.ui.detailsscreen
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,20 +11,19 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.ecommerceconcept.EcommerceApp
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentDetailsBinding
-import com.example.ecommerceconcept.domain.model.details.DetailsItemDomain
 import com.example.ecommerceconcept.domain.model.details.formattedPrice
 import com.example.ecommerceconcept.ui.detailsscreen.adapter.DetailsImageAdapter
 import com.example.ecommerceconcept.ui.detailsscreen.adapter.DetailsPagerAdapter
 import com.example.ecommerceconcept.ui.detailsscreen.adapter.HorizontalMarginItemDecoration
-import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModel
-import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModelFactory
+import com.example.ecommerceconcept.ui.vm.EcommerceViewModel
+import com.example.ecommerceconcept.ui.vm.EcommerceViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.roundToInt
 
 class DetailsFragment() : Fragment() {
 
-    private val viewModel: HomeFragmentViewModel by viewModels {
-        HomeFragmentViewModelFactory(
+    private val viewModel: EcommerceViewModel by viewModels {
+        EcommerceViewModelFactory(
             (requireActivity().application as EcommerceApp).database.ecommerceDao(),
             requireActivity().application.assets
         )

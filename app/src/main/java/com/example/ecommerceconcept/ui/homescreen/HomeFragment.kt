@@ -20,14 +20,14 @@ import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentHomeBinding
 import com.example.ecommerceconcept.ui.homescreen.adapter.BestSellerRecyclerAdapter
 import com.example.ecommerceconcept.ui.homescreen.adapter.HotSalesRecyclerAdapter
-import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModel
-import com.example.ecommerceconcept.ui.homescreen.vm.HomeFragmentViewModelFactory
+import com.example.ecommerceconcept.ui.vm.EcommerceViewModel
+import com.example.ecommerceconcept.ui.vm.EcommerceViewModelFactory
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class HomeFragment : Fragment() {
 
-    private val homeFragmentViewModel: HomeFragmentViewModel by viewModels {
-        HomeFragmentViewModelFactory(
+    private val viewModel: EcommerceViewModel by viewModels {
+        EcommerceViewModelFactory(
             (requireActivity().application as EcommerceApp).database.ecommerceDao(),
             requireActivity().application.assets
         )
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
         binding.root.viewTreeObserver.addOnPreDrawListener(
             object : ViewTreeObserver.OnPreDrawListener {
                 override fun onPreDraw(): Boolean {
-                    return if (homeFragmentViewModel.isReady) {
+                    return if (viewModel.isReady) {
                         binding.root.viewTreeObserver.removeOnPreDrawListener(this)
                         Log.d("LOG_TAG", "VM ready, launch app!")
                         true
@@ -67,14 +67,14 @@ class HomeFragment : Fragment() {
         setupDropDownSpinners()
 
         val hotSalesPager: ViewPager2 = binding.hotSalesPager
-        homeFragmentViewModel.hotSales.observe(this@HomeFragment.viewLifecycleOwner) {
+        viewModel.hotSales.observe(this@HomeFragment.viewLifecycleOwner) {
             hotSalesPager.adapter = HotSalesRecyclerAdapter(it)
             hotSalesPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
 
         val bestSalesRecyclerView: RecyclerView = binding.bestSellerList
         bestSalesRecyclerView.layoutManager = GridLayoutManager(this@HomeFragment.context, 2)
-        homeFragmentViewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
+        viewModel.bestSeller.observe(this@HomeFragment.viewLifecycleOwner) {
             bestSalesRecyclerView.adapter = BestSellerRecyclerAdapter(it) {
                 findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
             }

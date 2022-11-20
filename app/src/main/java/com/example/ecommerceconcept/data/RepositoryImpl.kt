@@ -8,12 +8,11 @@ import androidx.lifecycle.liveData
 import com.example.ecommerceconcept.data.db.EcommerceDao
 import com.example.ecommerceconcept.data.db.asBestSellerItemDomain
 import com.example.ecommerceconcept.data.db.asHomeStoreItemDomain
-import com.example.ecommerceconcept.data.model.DetailsItem
+import com.example.ecommerceconcept.data.model.*
 import com.example.ecommerceconcept.domain.Repository
 import com.example.ecommerceconcept.domain.model.details.DetailsItemDomain
 import com.example.ecommerceconcept.domain.model.home.HomeStoreItemDomain
-import com.example.ecommerceconcept.data.model.MainJson
-import com.example.ecommerceconcept.data.model.asDetailsItemDomain
+import com.example.ecommerceconcept.domain.model.cart.BasketDomain
 import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -58,6 +57,12 @@ class RepositoryImpl(
         emit(Gson().fromJson<DetailsItem?>(source, type).asDetailsItemDomain())
     }
 
+    override fun getBasket(): LiveData<BasketDomain> = liveData {
+        val source: String? = getJsonFromAssets(BASKET_PATH)
+        val type = object : TypeToken<Basket>() {}.type
+        emit(Gson().fromJson<Basket?>(source, type).asBasketDomain())
+    }
+
     private fun getJsonFromAssets(jsonFileName: String): String? {
         val result: String
         try {
@@ -72,6 +77,7 @@ class RepositoryImpl(
     companion object {
         const val HOME_SCREEN_LISTS_PATH = "main.json"
         const val DETAILS_PATH = "details.json"
+        const val BASKET_PATH = "basket.json"
     }
 
 }

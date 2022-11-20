@@ -69,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="My Cart"
+        android:textStyle="bold"
         android:textColor="@color/design_blue"
         android:textSize="35sp"
         android:layout_marginStart="42dp"
@@ -89,7 +90,7 @@
         android:id="@+id/cartRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="16dp"
@@ -115,12 +116,55 @@
         app:layout_constraintBottom_toTopOf="@id/horiz_divider_2"
         />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/totalTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Total"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/horiz_divider_1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="15dp" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/deliveryTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Delivery"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/totalTv"
+        app:layout_constraintStart_toStartOf="@id/totalTv"
+        android:layout_marginTop="15dp" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/totalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="#6,000 us"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/totalTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="35dp" />
 
-
-
-
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/deliveryValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Free"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/deliveryTv"
+        app:layout_constraintStart_toStartOf="@id/totalValue" />
 
 
 
@@ -139,7 +183,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/checkoutBtn"
         />
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/checkoutBtn"
