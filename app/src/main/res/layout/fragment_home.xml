@@ -44,18 +44,20 @@
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/filterIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="24dp"
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="@id/locationSpinner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/locationSpinner"
-            app:srcCompat="@drawable/ic_filter" />
+            app:srcCompat="@drawable/ic_filter"
+            android:scaleY="0.25"
+            android:scaleX="0.25"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/categoryHeader"
