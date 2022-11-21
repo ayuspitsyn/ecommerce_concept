@@ -11,7 +11,7 @@ import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentDetailsPagerItemBinding
 import com.example.ecommerceconcept.domain.model.details.DetailsItemDomain
 
-class Details(val details: DetailsItemDomain) : Fragment() {
+class Details(private val details: DetailsItemDomain) : Fragment() {
 
     private var _binding: FragmentDetailsPagerItemBinding? = null
     val binding get() = _binding!!

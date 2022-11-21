@@ -18,7 +18,7 @@ abstract class EcommerceDb : RoomDatabase() {
     companion object {
         private lateinit var INSTANCE: EcommerceDb
         fun getDatabase(context: Context): EcommerceDb {
-            if (!::INSTANCE.isInitialized) {
+            if (!Companion::INSTANCE.isInitialized) {
                 synchronized(this) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
