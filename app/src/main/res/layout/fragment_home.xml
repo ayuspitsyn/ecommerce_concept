@@ -14,22 +14,22 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/locationSpinner"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-            app:boxBackgroundColor="@color/mainBackgroundColor"
-            app:boxStrokeWidth="0dp"
             android:layout_width="230dp"
             android:layout_height="37dp"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            app:boxBackgroundColor="@color/mainBackgroundColor"
             app:boxStrokeColor="@color/design_blue"
-            app:startIconDrawable="@drawable/ic_location"
-            app:startIconTint="@color/design_orange"
+            app:boxStrokeWidth="0dp"
             app:endIconDrawable="@drawable/ic_spinner"
             app:endIconMode="dropdown_menu"
             app:endIconTint="@color/design_blue"
             app:hintEnabled="false"
-            android:maxLines="1"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp">
+            app:startIconDrawable="@drawable/ic_location"
+            app:startIconTint="@color/design_orange">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/locationDropdown"
@@ -37,13 +37,12 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/mainBackgroundColor"
                 android:inputType="none"
-                android:textSize="15sp"
                 android:paddingStart="0dp"
-                android:paddingEnd="0dp"
                 android:paddingTop="0dp"
-                android:paddingBottom="0dp" />
+                android:paddingEnd="0dp"
+                android:paddingBottom="0dp"
+                android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -93,9 +92,9 @@
             android:hint="@string/searchText"
             android:paddingBottom="5dp"
             app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/design_blue"
             app:boxStrokeWidth="0dp"
             app:hintTextColor="@color/design_blue"
-            app:boxStrokeColor="@color/design_blue"
             app:layout_constraintBottom_toBottomOf="@id/qrBtn"
             app:layout_constraintEnd_toStartOf="@id/qrBtn"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,8 +108,8 @@
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
                 android:paddingTop="8dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -118,59 +117,59 @@
 
         <RadioGroup
             android:id="@+id/categorySelector"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categoryHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="23dp"
+            android:checkedButton="@id/phone"
             android:orientation="horizontal"
-            android:checkedButton="@id/phone">
-            
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryHeader">
+
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/phone"
                 android:layout_width="71dp"
                 android:layout_height="71dp"
                 android:layout_marginStart="23dp"
+                android:background="@drawable/custom_button_background_selector"
                 android:button="@null"
-                android:gravity="center"
                 android:drawableStart="@drawable/ic_phones"
-                android:padding="26dp"
                 android:drawableTint="@drawable/custom_button_icon_color_selector"
-                android:background="@drawable/custom_button_background_selector"/>
+                android:gravity="center"
+                android:padding="26dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/computer"
                 android:layout_width="71dp"
                 android:layout_height="71dp"
                 android:layout_marginStart="23dp"
+                android:background="@drawable/custom_button_background_selector"
                 android:button="@null"
                 android:drawableStart="@drawable/ic_computer"
-                android:padding="23dp"
                 android:drawableTint="@drawable/custom_button_icon_color_selector"
-                android:background="@drawable/custom_button_background_selector"/>
+                android:padding="23dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/health"
                 android:layout_width="71dp"
                 android:layout_height="71dp"
                 android:layout_marginStart="23dp"
+                android:background="@drawable/custom_button_background_selector"
                 android:button="@null"
                 android:drawableStart="@drawable/ic_health"
-                android:padding="20dp"
                 android:drawableTint="@drawable/custom_button_icon_color_selector"
-                android:background="@drawable/custom_button_background_selector"/>
+                android:padding="20dp" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/books"
                 android:layout_width="71dp"
                 android:layout_height="71dp"
                 android:layout_marginStart="23dp"
+                android:background="@drawable/custom_button_background_selector"
                 android:button="@null"
                 android:drawableStart="@drawable/ic_books"
-                android:padding="25dp"
                 android:drawableTint="@drawable/custom_button_icon_color_selector"
-                android:background="@drawable/custom_button_background_selector"/>
+                android:padding="25dp" />
 
         </RadioGroup>
 
@@ -187,59 +186,58 @@
                 android:layout_width="71dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                android:text="@string/phonesBtnText"
-                android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/computersTv"
-                app:layout_constraintTop_toBottomOf="@id/categorySelector"
                 android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:text="@string/phonesBtnText"
+                android:textColor="@color/design_orange"
                 android:textSize="12sp"
-                android:textColor="@color/design_orange" />
+                app:layout_constraintEnd_toStartOf="@id/computersTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/computersTv"
                 android:layout_width="71dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                android:text="@string/computersBtnText"
-                android:gravity="center"
-                app:layout_constraintStart_toEndOf="@id/phonesTv"
-                app:layout_constraintEnd_toStartOf="@id/healthTv"
-                app:layout_constraintTop_toBottomOf="@id/categorySelector"
                 android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:text="@string/computersBtnText"
+                android:textColor="@color/design_blue"
                 android:textSize="12sp"
-                android:textColor="@color/design_blue" />
+                app:layout_constraintEnd_toStartOf="@id/healthTv"
+                app:layout_constraintStart_toEndOf="@id/phonesTv"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/healthTv"
                 android:layout_width="71dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                android:text="@string/healthBtnText"
-                android:gravity="center"
-                app:layout_constraintStart_toEndOf="@id/computersTv"
-                app:layout_constraintEnd_toStartOf="@id/booksTv"
-                app:layout_constraintTop_toBottomOf="@id/categorySelector"
                 android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:text="@string/healthBtnText"
+                android:textColor="@color/design_blue"
                 android:textSize="12sp"
-                android:textColor="@color/design_blue" />
+                app:layout_constraintEnd_toStartOf="@id/booksTv"
+                app:layout_constraintStart_toEndOf="@id/computersTv"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/booksTv"
                 android:layout_width="71dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                android:text="@string/booksBtnText"
-                android:gravity="center"
-                app:layout_constraintStart_toEndOf="@id/healthTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/categorySelector"
                 android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:text="@string/booksBtnText"
+                android:textColor="@color/design_blue"
                 android:textSize="12sp"
-                android:textColor="@color/design_blue" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/healthTv"
+                app:layout_constraintTop_toBottomOf="@id/categorySelector" />
 
         </LinearLayout>
-
 
 
         <com.google.android.material.button.MaterialButton

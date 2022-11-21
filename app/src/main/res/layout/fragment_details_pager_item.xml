@@ -1,108 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/cpuIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_cpu"
         android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@id/cameraIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/cameraIcon"/>
+        app:srcCompat="@drawable/ic_cpu" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/cameraIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_camera"
-        app:layout_constraintTop_toTopOf="@id/cpuIcon"
         app:layout_constraintBottom_toBottomOf="@id/cpuIcon"
+        app:layout_constraintEnd_toStartOf="@id/ramIcon"
         app:layout_constraintStart_toEndOf="@id/cpuIcon"
-        app:layout_constraintEnd_toStartOf="@id/ramIcon"/>
+        app:layout_constraintTop_toTopOf="@id/cpuIcon"
+        app:srcCompat="@drawable/ic_camera" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ramIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_camera"
-        app:layout_constraintTop_toTopOf="@id/cpuIcon"
         app:layout_constraintBottom_toBottomOf="@id/cpuIcon"
+        app:layout_constraintEnd_toStartOf="@id/flashIcon"
         app:layout_constraintStart_toEndOf="@id/cameraIcon"
-        app:layout_constraintEnd_toStartOf="@id/flashIcon"/>
+        app:layout_constraintTop_toTopOf="@id/cpuIcon"
+        app:srcCompat="@drawable/ic_camera" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/flashIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_flash"
-        app:layout_constraintTop_toTopOf="@id/cpuIcon"
         app:layout_constraintBottom_toBottomOf="@id/cpuIcon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ramIcon"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/cpuIcon"
+        app:srcCompat="@drawable/ic_flash" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/cpu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/cpuIcon"
-        app:layout_constraintEnd_toEndOf="@id/cpuIcon"
-        app:layout_constraintTop_toBottomOf="@id/cpuIcon"
-        android:text="Exynos 990"
+        android:layout_marginTop="5dp"
         android:textColor="@color/design_gray"
         android:textSize="11sp"
-        android:layout_marginTop="5dp"/>
+        app:layout_constraintEnd_toEndOf="@id/cpuIcon"
+        app:layout_constraintStart_toStartOf="@id/cpuIcon"
+        app:layout_constraintTop_toBottomOf="@id/cpuIcon"
+        tools:text="Exynos 990" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/cameraIcon"
-        app:layout_constraintEnd_toEndOf="@id/cameraIcon"
-        app:layout_constraintTop_toTopOf="@id/cpu"
-        android:text="108 + 12 mp"
         android:textColor="@color/design_gray"
-        android:textSize="11sp"/>
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/cameraIcon"
+        app:layout_constraintStart_toStartOf="@id/cameraIcon"
+        app:layout_constraintTop_toTopOf="@id/cpu"
+        tools:text="108 + 12 mp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/ram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/ramIcon"
-        app:layout_constraintEnd_toEndOf="@id/ramIcon"
-        app:layout_constraintTop_toTopOf="@id/cpu"
-        android:text="8 GB"
         android:textColor="@color/design_gray"
-        android:textSize="11sp"/>
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/ramIcon"
+        app:layout_constraintStart_toStartOf="@id/ramIcon"
+        app:layout_constraintTop_toTopOf="@id/cpu"
+        tools:text="8 GB" />
 
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/flash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/flashIcon"
-        app:layout_constraintEnd_toEndOf="@id/flashIcon"
-        app:layout_constraintTop_toTopOf="@id/cpu"
-        android:text="256 GB"
         android:textColor="@color/design_gray"
-        android:textSize="11sp"/>
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/flashIcon"
+        app:layout_constraintStart_toStartOf="@id/flashIcon"
+        app:layout_constraintTop_toTopOf="@id/cpu"
+        tools:text="256 GB" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/paramsSelectorHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select color and capacity"
-        android:textSize="16sp"
-        android:textColor="@color/design_blue"
-        app:layout_constraintTop_toBottomOf="@id/cpu"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="30dp"
-        />
+        android:layout_marginTop="30dp"
+        android:textColor="@color/design_blue"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cpu"
+        tools:text="Select color and capacity" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/colorVariant1btn"
@@ -113,21 +113,20 @@
         app:icon="@drawable/ic_selected"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
-        app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader"
         app:layout_constraintStart_toStartOf="@id/paramsSelectorHeader"
-        />
+        app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/colorVariant2btn"
         android:layout_width="37dp"
         android:layout_height="37dp"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="19dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/oval"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
-        app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader"
         app:layout_constraintStart_toEndOf="@id/colorVariant1btn"
+        app:layout_constraintTop_toBottomOf="@id/paramsSelectorHeader"
 
         />
 
@@ -141,16 +140,15 @@
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
-        android:text="128 GB"
-        android:textStyle="bold"
         android:textAllCaps="false"
         android:textSize="13sp"
-        app:strokeColor="@color/white"
+        android:textStyle="bold"
         app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/colorVariant1btn"
         app:layout_constraintEnd_toStartOf="@id/flashVariant2Btn"
         app:layout_constraintTop_toTopOf="@id/colorVariant1btn"
-        app:layout_constraintBottom_toBottomOf="@id/colorVariant1btn"
-        />
+        app:strokeColor="@color/white"
+        tools:text="128 GB" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/flashVariant2Btn"
@@ -162,14 +160,13 @@
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
-        android:text="256 gb"
         android:textAllCaps="false"
-        android:textSize="13sp"
         android:textColor="@color/design_gray"
+        android:textSize="13sp"
         app:cornerRadius="10dp"
-        app:layout_constraintTop_toTopOf="@id/colorVariant1btn"
         app:layout_constraintBottom_toBottomOf="@id/colorVariant1btn"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/colorVariant1btn"
+        tools:text="256 gb" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

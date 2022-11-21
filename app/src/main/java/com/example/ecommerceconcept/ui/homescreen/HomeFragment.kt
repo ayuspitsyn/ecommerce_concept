@@ -1,7 +1,6 @@
 package com.example.ecommerceconcept.ui.homescreen
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -52,10 +51,8 @@ class HomeFragment : Fragment() {
                 override fun onPreDraw(): Boolean {
                     return if (viewModel.isReady) {
                         binding.root.viewTreeObserver.removeOnPreDrawListener(this)
-                        Log.d("LOG_TAG", "VM ready, launch app!")
                         true
                     } else {
-                        Log.d("LOG_TAG", "VM not ready, wait...")
                         false
                     }
                 }

@@ -58,8 +58,7 @@ class BestSellerRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         holder.setData(items[position])
-        holder.itemView.setOnClickListener {onItemClicked(items[position])}
+        holder.itemView.setOnClickListener { onItemClicked(items[position]) }
     }
-
 
 }

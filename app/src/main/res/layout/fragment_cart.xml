@@ -1,6 +1,6 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBackgroundColor"
@@ -11,8 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="44dp"
-        />
+        app:layout_constraintGuide_begin="44dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backBtn"
@@ -36,13 +35,13 @@
         android:id="@+id/filterOptionsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Add adress"
-        android:textSize="15sp"
-        android:textColor="@color/design_blue"
         android:layout_marginEnd="9dp"
-        app:layout_constraintEnd_toStartOf="@+id/addAddressBtn"
+        android:gravity="center"
+        android:text="@string/add_address"
+        android:textColor="@color/design_blue"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@id/vertHeaderCenterGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/addAddressBtn"
         app:layout_constraintTop_toTopOf="@+id/vertHeaderCenterGuideline" />
 
     <com.google.android.material.button.MaterialButton
@@ -67,12 +66,12 @@
         android:id="@+id/imagePager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="48dp"
-        android:text="My Cart"
-        android:textStyle="bold"
+        android:text="@string/my_cart"
         android:textColor="@color/design_blue"
         android:textSize="35sp"
-        android:layout_marginStart="42dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vertHeaderCenterGuideline" />
 
@@ -81,126 +80,120 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="48dp"
-        app:layout_constraintTop_toBottomOf="@id/imagePager"
+        android:background="@color/design_blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:shapeAppearance="@style/roundedCorners30"
-        android:background="@color/design_blue"/>
+        app:layout_constraintTop_toBottomOf="@id/imagePager"
+        app:shapeAppearance="@style/roundedCorners30" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="35dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toTopOf="@id/background"
-        app:layout_constraintStart_toStartOf="@id/background"
-        app:layout_constraintEnd_toEndOf="@id/background"
         app:layout_constraintBottom_toTopOf="@id/horiz_divider_1"
-        />
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background" />
 
     <View
         android:id="@+id/horiz_divider_1"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="90dp"
+        android:alpha="0.25"
         android:background="?android:attr/listDivider"
         android:backgroundTint="#FFFFFF"
-        android:alpha="0.25"
-        android:layout_marginBottom="90dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/horiz_divider_2"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/totalTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Total"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/horiz_divider_1"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/total"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horiz_divider_1" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/deliveryTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="Delivery"
-        android:textSize="15sp"
+        android:text="@string/delivery"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/totalTv"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/totalTv"
-        android:layout_marginTop="15dp" />
+        app:layout_constraintTop_toBottomOf="@id/totalTv" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/totalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
         android:gravity="center"
-        android:text="#6,000 us"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBaseline_toBaselineOf="@id/totalTv"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="35dp" />
+        tools:text="$6,000 us" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/deliveryValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Free"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBaseline_toBaselineOf="@id/deliveryTv"
-        app:layout_constraintStart_toStartOf="@id/totalValue" />
-
-
+        app:layout_constraintStart_toStartOf="@id/totalValue"
+        tools:text="Free" />
 
     <View
         android:id="@+id/horiz_divider_2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="27dp"
+        android:alpha="0.25"
         android:background="?android:attr/listDivider"
         android:backgroundTint="#FFFFFF"
-        android:alpha="0.25"
-        android:layout_marginBottom="27dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/checkoutBtn"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/checkoutBtn"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:backgroundTint="@color/design_orange"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:cornerRadius="10dp"
-        android:text="Checkout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="44dp"
-        />
+        android:backgroundTint="@color/design_orange"
+        android:text="@string/checkoutBtnText"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

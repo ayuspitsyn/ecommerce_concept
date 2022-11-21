@@ -4,12 +4,12 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_search"
-        android:title=""/>
+        android:title="" />
 
     <item
         android:id="@+id/cartFragment"
         android:icon="@drawable/ic_cart"
-        android:title=""/>
+        android:title="" />
 
     <item
         android:icon="@drawable/ic_favourites"

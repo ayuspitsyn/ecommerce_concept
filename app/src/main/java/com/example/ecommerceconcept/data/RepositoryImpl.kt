@@ -1,7 +1,6 @@
 package com.example.ecommerceconcept.data
 
 import android.content.res.AssetManager
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.liveData
@@ -27,12 +26,8 @@ class RepositoryImpl(
 
     override suspend fun refreshRepo() = withContext(Dispatchers.Default) {
         val source: String? = getJsonFromAssets(HOME_SCREEN_LISTS_PATH)
-        Log.d("LOG_TAG"," SOURCE ")
-        Log.d("LOG_TAG", source.toString())
         val type = object : TypeToken<MainJson>() {}.type
         val result: MainJson = Gson().fromJson(source, type)
-        Log.d("LOG_TAG"," RESULT ")
-        Log.d("LOG_TAG", result.toString())
         val hotSales = result.home_store
         ecommerceDao.insertHomeStoreDbItem(hotSales)
         val mainList = result.best_seller
@@ -75,9 +70,9 @@ class RepositoryImpl(
     }
 
     companion object {
-        const val HOME_SCREEN_LISTS_PATH = "main.json"
-        const val DETAILS_PATH = "details.json"
-        const val BASKET_PATH = "basket.json"
+        const val HOME_SCREEN_LISTS_PATH = "backendEmulated/main.json"
+        const val DETAILS_PATH = "backendEmulated/details.json"
+        const val BASKET_PATH = "backendEmulated/basket.json"
     }
 
 }

@@ -6,14 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorInt
 import androidx.fragment.app.Fragment
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentDetailsPagerItemBinding
 import com.example.ecommerceconcept.domain.model.details.DetailsItemDomain
 
-class Details(val details: DetailsItemDomain): Fragment() {
+class Details(val details: DetailsItemDomain) : Fragment() {
 
     private var _binding: FragmentDetailsPagerItemBinding? = null
     val binding get() = _binding!!
@@ -30,26 +28,28 @@ class Details(val details: DetailsItemDomain): Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            cpu.text=details.CPU
-            camera.text=details.camera
-            ram.text=details.ssd
-            flash.text=details.sd
-            colorVariant1btn.backgroundTintList = (ColorStateList.valueOf(Color.parseColor(details.color[0])))
+            cpu.text = details.CPU
+            camera.text = details.camera
+            ram.text = details.ssd
+            flash.text = details.sd
+            colorVariant1btn.backgroundTintList =
+                (ColorStateList.valueOf(Color.parseColor(details.color[0])))
             colorVariant1btn.setBackgroundResource(R.drawable.oval)
-            colorVariant2btn.backgroundTintList = (ColorStateList.valueOf(Color.parseColor(details.color[1])))
+            colorVariant2btn.backgroundTintList =
+                (ColorStateList.valueOf(Color.parseColor(details.color[1])))
             colorVariant2btn.setBackgroundResource(R.drawable.oval)
 
-            flashVariant1Btn.text=details.capacity[0]
-            flashVariant2Btn.text=details.capacity[1]
+            flashVariant1Btn.text = details.capacity[0]
+            flashVariant2Btn.text = details.capacity[1]
         }
 
         binding.colorVariant1btn.setOnClickListener {
             binding.colorVariant1btn.setIconResource(R.drawable.ic_selected)
-            binding.colorVariant2btn.icon=null
+            binding.colorVariant2btn.icon = null
         }
 
         binding.colorVariant2btn.setOnClickListener {
-            binding.colorVariant1btn.icon=null
+            binding.colorVariant1btn.icon = null
             binding.colorVariant2btn.setIconResource(R.drawable.ic_selected)
 
         }

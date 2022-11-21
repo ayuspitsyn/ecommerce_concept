@@ -16,7 +16,7 @@ class EcommerceViewModelFactory(ecommerceDao: EcommerceDao, assets: AssetManager
     private lateinit var instance: EcommerceViewModel
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        instance = if(::instance.isInitialized) instance else EcommerceViewModel(repository)
+        instance = if (::instance.isInitialized) instance else EcommerceViewModel(repository)
         return instance as T
     }
 }

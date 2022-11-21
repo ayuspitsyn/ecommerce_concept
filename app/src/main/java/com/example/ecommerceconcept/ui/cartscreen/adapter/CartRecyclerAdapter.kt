@@ -12,23 +12,24 @@ import com.example.ecommerceconcept.domain.model.cart.formattedPrice
 
 class CartRecyclerAdapter(
     private val cart: List<BasketItemDomain>
-):
+) :
     RecyclerView.Adapter<CartRecyclerAdapter.ViewPagerViewHolder>() {
 
     inner class ViewPagerViewHolder(private val binding: ItemCartBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun setData(item: BasketItemDomain) {
 
-            var amount:Int = 1
+            var amount = 1
+            binding.amount.text = amount.toString()
 
             binding.incBtn.setOnClickListener {
                 amount++
-                binding.amount.text=amount.toString()
+                binding.amount.text = amount.toString()
             }
 
             binding.decBtn.setOnClickListener {
-                if (amount>1) amount--
-                binding.amount.text=amount.toString()
+                if (amount > 1) amount--
+                binding.amount.text = amount.toString()
             }
 
             binding.title.text = item.title

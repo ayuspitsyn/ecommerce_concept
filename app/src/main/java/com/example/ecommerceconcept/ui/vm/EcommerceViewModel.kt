@@ -10,15 +10,15 @@ import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
 import com.example.ecommerceconcept.domain.model.home.HomeStoreItemDomain
 import kotlinx.coroutines.launch
 
-class EcommerceViewModel(private val repository: Repository): ViewModel() {
+class EcommerceViewModel(private val repository: Repository) : ViewModel() {
 
     var isReady = false
 
-    init{
+    init {
         isReady = false
         viewModelScope.launch {
             repository.refreshRepo()
-            isReady=true
+            isReady = true
         }
     }
 

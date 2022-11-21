@@ -16,8 +16,6 @@ interface EcommerceDao {
     fun getHomeStoreDbItemList(): LiveData<List<HomeStoreItem>>
 
 
-
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertBestSellerDbItem(list: List<BestSellerItem>)
 

@@ -7,7 +7,7 @@ import com.example.ecommerceconcept.domain.model.home.HomeStoreItemDomain
 import com.example.ecommerceconcept.domain.model.home.BestSellerItemDomain
 
 @Entity(tableName = "home_store")
-data class HomeStoreItem (
+data class HomeStoreItem(
     @PrimaryKey val id: Int,
     @ColumnInfo val is_new: Boolean?,
     @ColumnInfo val title: String,
@@ -18,7 +18,7 @@ data class HomeStoreItem (
 
 fun List<HomeStoreItem>.asHomeStoreItemDomain(): List<HomeStoreItemDomain> {
     return map {
-        HomeStoreItemDomain (
+        HomeStoreItemDomain(
             id = it.id,
             is_new = it.is_new ?: false,
             title = it.title,
@@ -30,7 +30,7 @@ fun List<HomeStoreItem>.asHomeStoreItemDomain(): List<HomeStoreItemDomain> {
 }
 
 @Entity(tableName = "best_seller")
-data class BestSellerItem (
+data class BestSellerItem(
     @PrimaryKey val id: Int,
     @ColumnInfo val is_favorites: Boolean,
     @ColumnInfo val title: String,
@@ -41,7 +41,7 @@ data class BestSellerItem (
 
 fun List<BestSellerItem>.asBestSellerItemDomain(): List<BestSellerItemDomain> {
     return map {
-        BestSellerItemDomain (
+        BestSellerItemDomain(
             id = it.id,
             is_favorites = it.is_favorites,
             title = it.title,

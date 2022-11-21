@@ -20,7 +20,7 @@ import com.example.ecommerceconcept.ui.vm.EcommerceViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.roundToInt
 
-class DetailsFragment() : Fragment() {
+class DetailsFragment : Fragment() {
 
     private val viewModel: EcommerceViewModel by viewModels {
         EcommerceViewModelFactory(
@@ -30,7 +30,7 @@ class DetailsFragment() : Fragment() {
     }
 
     private var _binding:FragmentDetailsBinding? = null
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +47,7 @@ class DetailsFragment() : Fragment() {
             findNavController().navigateUp()
         }
 
-        viewModel.getItemDetails(0).observe(this@DetailsFragment.viewLifecycleOwner) {
+        viewModel.getItemDetails(-1).observe(this@DetailsFragment.viewLifecycleOwner) {
 
             binding.imagePager.apply {
                 adapter=DetailsImageAdapter(it.images.asList())
@@ -132,9 +132,5 @@ class DetailsFragment() : Fragment() {
         _binding = null
     }
 
-    companion object{
-
-
-    }
 }
 

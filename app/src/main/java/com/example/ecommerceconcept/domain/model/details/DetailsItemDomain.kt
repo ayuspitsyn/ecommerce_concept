@@ -2,7 +2,7 @@ package com.example.ecommerceconcept.domain.model.details
 
 import java.text.NumberFormat
 
-data class DetailsItemDomain (
+data class DetailsItemDomain(
     val CPU: String,
     val camera: String,
     val capacity: Array<String>,
@@ -15,9 +15,9 @@ data class DetailsItemDomain (
     val sd: String,
     val ssd: String,
     val title: String,
-    )
+)
 
-fun DetailsItemDomain.formattedPrice():String {
+fun DetailsItemDomain.formattedPrice(): String {
     val f = NumberFormat.getCurrencyInstance()
     return f.format(price)
 }

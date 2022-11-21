@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerceconcept.EcommerceApp
-import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentCartBinding
+import com.example.ecommerceconcept.domain.model.cart.getFormattedTotal
 import com.example.ecommerceconcept.ui.cartscreen.adapter.CartRecyclerAdapter
-import com.example.ecommerceconcept.ui.homescreen.adapter.BestSellerRecyclerAdapter
 import com.example.ecommerceconcept.ui.vm.EcommerceViewModel
 import com.example.ecommerceconcept.ui.vm.EcommerceViewModelFactory
 
@@ -28,7 +26,7 @@ class CartFragment : Fragment() {
     }
 
     private var _binding: FragmentCartBinding? = null
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,8 +47,8 @@ class CartFragment : Fragment() {
         cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.cart.observe(this@CartFragment.viewLifecycleOwner) {
             cartRecyclerView.adapter = CartRecyclerAdapter(it.items)
-            binding.totalValue.text=it.total.toString()
-            binding.deliveryValue.text=it.delivery
+            binding.totalValue.text = it.getFormattedTotal()
+            binding.deliveryValue.text = it.delivery
         }
 
     }
